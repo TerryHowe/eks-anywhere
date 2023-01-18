@@ -38,17 +38,17 @@ func (m *MockStorageClient) EXPECT() *MockStorageClientMockRecorder {
 }
 
 // CopyGraph mocks base method.
-func (m *MockStorageClient) CopyGraph(ctx context.Context, srcStorage registry0.Repository, srcRef string, dstStorage registry0.Repository, dstRef string) error {
+func (m *MockStorageClient) CopyGraph(ctx context.Context, srcStorage, dstStorage registry0.Repository, desc v1.Descriptor) error {
 	m.ctrl.T.Helper()
-	ret := m.ctrl.Call(m, "CopyGraph", ctx, srcStorage, srcRef, dstStorage, dstRef)
+	ret := m.ctrl.Call(m, "CopyGraph", ctx, srcStorage, dstStorage, desc)
 	ret0, _ := ret[0].(error)
 	return ret0
 }
 
 // CopyGraph indicates an expected call of CopyGraph.
-func (mr *MockStorageClientMockRecorder) CopyGraph(ctx, srcStorage, srcRef, dstStorage, dstRef interface{}) *gomock.Call {
+func (mr *MockStorageClientMockRecorder) CopyGraph(ctx, srcStorage, dstStorage, desc interface{}) *gomock.Call {
 	mr.mock.ctrl.T.Helper()
-	return mr.mock.ctrl.RecordCallWithMethodType(mr.mock, "CopyGraph", reflect.TypeOf((*MockStorageClient)(nil).CopyGraph), ctx, srcStorage, srcRef, dstStorage, dstRef)
+	return mr.mock.ctrl.RecordCallWithMethodType(mr.mock, "CopyGraph", reflect.TypeOf((*MockStorageClient)(nil).CopyGraph), ctx, srcStorage, dstStorage, desc)
 }
 
 // Destination mocks base method.
