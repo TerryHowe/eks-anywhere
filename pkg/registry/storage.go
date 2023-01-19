@@ -37,4 +37,5 @@ type StorageClient interface {
 	FetchBytes(ctx context.Context, srcStorage orasregistry.Repository, artifact Artifact) (ocispec.Descriptor, []byte, error)
 	FetchBlob(ctx context.Context, srcStorage orasregistry.Repository, descriptor ocispec.Descriptor) ([]byte, error)
 	CopyGraph(ctx context.Context, srcStorage orasregistry.Repository, dstStorage orasregistry.Repository, desc ocispec.Descriptor) error
+	Tag(ctx context.Context, dstStorage orasregistry.Repository, desc ocispec.Descriptor, tag string) error
 }

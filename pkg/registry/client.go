@@ -111,3 +111,8 @@ func (or *OCIRegistryClient) CopyGraph(ctx context.Context, srcStorage orasregis
 	extendedCopyOptions := oras.DefaultExtendedCopyOptions
 	return oras.CopyGraph(ctx, srcStorage, dstStorage, desc, extendedCopyOptions.CopyGraphOptions)
 }
+
+// Tag an image
+func (or *OCIRegistryClient) Tag(ctx context.Context, dstStorage orasregistry.Repository, desc ocispec.Descriptor, tag string) error {
+	return dstStorage.Tag(ctx, desc, tag)
+}
