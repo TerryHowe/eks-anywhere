@@ -57,7 +57,7 @@ spec:
       # -- Controller image digest
       digest: "{{eks-anywhere-packages}}"
       # -- Whether to turn on Webhooks for the controller image
-      enableWebhooks: "true"
+      disableWebhooks: "false"
       # -- Additional environment variables for the controller pod.
       # - name: EKSA_PUBLIC_KEY
       #   value: ""
@@ -80,11 +80,7 @@ spec:
       tag: "{{ecr-token-refresher-tag}}"
       # -- ECR refresher digest
       digest: "{{ecr-token-refresher}}"
-      suspend: false
-    registryMirrorSecret:
-      endpoint: ""
-      cacertcontent: ""
-      insecure: "ZmFsc2UK"
+      disable: false
 ```
 
 These values will be passed to the helm chart during installation using a values.yaml file to protect the secrets.
